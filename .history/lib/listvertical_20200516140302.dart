@@ -19,21 +19,17 @@ class ListVertical extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: ListView(
-          scrollDirection: Axis.vertical,
-          children: <Widget>[
-            _listTitle(),
-            _listTitle(),
-            _listTitle(),
-            _listTitle(),
-            _listTitle(),
-            _listTitle(),
-            _listTitle(),
-          ],
-        ),
-      ),
+    return ListView(
+      scrollDirection: Axis.vertical,
+      children: <Widget>[
+        _listTitle(),
+        _listTitle(),
+        _listTitle(),
+        _listTitle(),
+        _listTitle(),
+        _listTitle(),
+        _listTitle(),
+      ],
     );
   }
 }
