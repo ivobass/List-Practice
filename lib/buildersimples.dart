@@ -7,6 +7,13 @@ class BuilderSimples extends StatefulWidget {
 
 class _BuilderSimplesState extends State<BuilderSimples> {
   PageController controller;
+      int _index = 0;
+    List<String> pages = [
+      "Home",
+      "Favorito",
+      "Conta",
+     
+    ];
   @override
   void initState() {
     // ecreve inist e aparece automatico
@@ -27,13 +34,7 @@ class _BuilderSimplesState extends State<BuilderSimples> {
 
   @override
   Widget build(BuildContext context) {
-   
-    List<String> pages = [
-      "Home",
-      "Favorito",
-      "Conta",
-     
-    ];
+
 
     return Scaffold(
       appBar: AppBar(
@@ -66,6 +67,7 @@ class _BuilderSimplesState extends State<BuilderSimples> {
       body: PageView.builder(
         controller: controller,
         itemCount: pages.length,
+        onPageChanged: onPageChange,
         itemBuilder: (BuildContext context, int index) {
           print(index);
           return Center(child: Text(pages[index]));
@@ -80,7 +82,7 @@ class _BuilderSimplesState extends State<BuilderSimples> {
                   duration: Duration(milliseconds: 300),
                   curve: Curves.easeInOutBack);
             },
-            currentIndex: controller.page.round(),
+            currentIndex: _index,
             items: <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                   title: Text("Home"), icon: Icon(Icons.home)),
@@ -94,4 +96,11 @@ class _BuilderSimplesState extends State<BuilderSimples> {
       ),
     );
   }
+     void onPageChange(int page)
+  {
+    setState(() {
+          _index = page;
+    });
+
+    }
 }

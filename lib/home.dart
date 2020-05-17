@@ -66,6 +66,7 @@ class _HomeState extends State<Home> {
                 title: Text('PageBuilder Completo'),
                 subtitle: Text('Click aqui'),
                 onTap: () {
+                  
                   Navigator.of(context).push(
                     MaterialPageRoute(builder: (context) => BuilderSimples()),
                   );
